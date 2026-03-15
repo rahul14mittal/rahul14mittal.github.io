@@ -1,93 +1,494 @@
+:root {
+  /* Bengali palette */
+  --crimson:        #B5121B;
+  --crimson-deep:   #7D0C12;
+  --crimson-pale:   rgba(181, 18, 27, 0.10);
+
+  /* Marwari / Rajasthani palette */
+  --saffron:        #E06020;
+  --marigold:       #D4960A;
+  --gold:           #C8913A;
+  --gold-pale:      rgba(200, 145, 58, 0.14);
+
+  /* Shared */
+  --deep-purple:    #5A2980;
+
+  /* Neutrals */
+  --ink:            #190B08;
+  --ink-soft:       #4B2820;
+  --surface:        #FEF6E6;
+  --bg:             #FAF0D8;
+  --line:           rgba(181, 18, 27, 0.18);
+  --line-gold:      rgba(200, 145, 58, 0.30);
+
+  --radius: 16px;
+  --shadow: 0 12px 40px rgba(100, 18, 10, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Lobster", cursive; /* Change to a romantic cursive font */
-  background-color: #ffdde1;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100vh;
   margin: 0;
-  background: url("images/image.jpg") repeat;
-  font-size: 35px;
-  color: rgb(255, 0, 174);
-}
-.hh {
-  -webkit-text-stroke: 2px #71004f;
-  font-weight: 900;
-}
-.pp {
-  -webkit-text-stroke: 2px #71004f;
-
-  font-size: 50px;
-  font-style: oblique;
-  font-weight: 800;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  background-color: var(--bg);
+  /* Warm ivory base + subtle bandhani dot grid + corner glows */
+  background-image:
+    radial-gradient(circle, rgba(181, 18, 27, 0.065) 1.4px, transparent 1.4px),
+    radial-gradient(ellipse at 0% 0%,   rgba(232, 96, 32, 0.20) 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 100%, rgba(181, 18, 27, 0.18) 0%, transparent 40%);
+  background-size: 26px 26px, cover, cover;
 }
 
-body .container {
-  width: 100%;
-  height: 100%;
+/* ─── Top decorative band (temple gopuram stripe) ── */
+.top-band {
+  height: 7px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--crimson)  0px,  var(--crimson)  28px,
+    var(--gold)     28px, var(--gold)     38px,
+    var(--saffron)  38px, var(--saffron)  66px,
+    var(--gold)     66px, var(--gold)     76px
+  );
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /* Subtle jaali / lattice overlay */
+  background-image:
+    linear-gradient(rgba(181, 18, 27, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181, 18, 27, 0.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.container {
+  width: min(1000px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 2.8rem 0 2rem;
+  animation: reveal 700ms ease-out;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.22rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--crimson);
+}
+
+h1 {
+  margin: 0.15rem 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  line-height: 0.92;
+  font-weight: 700;
+  color: var(--crimson-deep);
+  text-shadow: 0 2px 12px rgba(125, 12, 18, 0.12);
+}
+
+h1 .and-symbol {
+  color: var(--marigold);
+  font-style: italic;
+}
+
+.subtitle {
+  margin: 0.85rem 0 0;
+  max-width: 55ch;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ─── Ornamental divider (alpana-inspired) ── */
+.hero-ornament {
+  margin: 1.6rem 0 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  background-color: transparent;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  gap: 0.8rem;
+  color: var(--crimson);
+  opacity: 0.55;
 }
 
-.image {
-  height: 280px;
+.hero-ornament::before,
+.hero-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--crimson) 70%);
 }
 
-.buttons button {
-  background-color: #ff4d79;
-  color: #fff;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 10px;
-  margin: 10px;
-  font-size: 26px;
-  cursor: pointer;
-  position: relative;
-  font-family: "Lobster", cursive;
+.hero-ornament::after {
+  background: linear-gradient(270deg, transparent, var(--crimson) 70%);
 }
 
-.buttons button:hover {
-  background-color: #7c1f37;
+.hero-ornament span {
+  font-size: 1rem;
+  letter-spacing: 0.6rem;
+  flex-shrink: 0;
 }
 
-.buttons {
+.filter-panel {
+  margin-top: 1.8rem;
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--line);
+  background: rgba(254, 246, 230, 0.90);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 16px rgba(181, 18, 27, 0.07), inset 0 0 0 1px var(--gold-pale);
+}
+
+.filter-group + .filter-group {
+  margin-top: 0.9rem;
+}
+
+.filter-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--crimson);
+}
+
+.filter-buttons {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
-#no-button {
+.chip {
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  border-radius: 999px;
+  padding: 0.44rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 180ms ease;
 }
 
-.hidden-message {
-  display: none;
-  margin-top: 20px;
+.chip:hover,
+.chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--crimson);
+  background: rgba(181, 18, 27, 0.05);
 }
 
-.move {
-  animation: moveNoMessage 0.5s linear;
+.chip.active {
+  background: var(--crimson);
+  color: #fff;
+  border-color: var(--crimson);
+  box-shadow: 0 3px 14px rgba(181, 18, 27, 0.35);
 }
 
-@keyframes moveNoMessage {
-  0% {
-    transform: translate(0, 0);
+.timeline {
+  margin: 1.6rem 0 5rem;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.day-block {
+  background: rgba(254, 246, 232, 0.94);
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(181, 18, 27, 0.13);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: rise 600ms ease-out;
+}
+
+.day-header {
+  padding: 1rem 1.4rem;
+  background: linear-gradient(105deg, var(--crimson-deep) 0%, #9E1018 60%, #B8121A 100%);
+  border-bottom: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold shimmer diagonal lines over day header */
+.day-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    -60deg,
+    transparent,
+    transparent 22px,
+    rgba(200, 145, 58, 0.07) 22px,
+    rgba(200, 145, 58, 0.07) 24px
+  );
+}
+
+.day-header h2 {
+  margin: 0;
+  font-family: "Eczar", "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFEFD8;
+  position: relative;
+  z-index: 1;
+}
+
+.day-header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(255, 238, 208, 0.72);
+  letter-spacing: 0.04rem;
+  position: relative;
+  z-index: 1;
+}
+
+.day-events {
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.event-card {
+  border: 1px solid rgba(181, 18, 27, 0.13);
+  border-left: 4px solid var(--gold);
+  border-radius: 12px;
+  background: #FFFDF7;
+  padding: 0.95rem 1rem;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 4px 18px rgba(181, 18, 27, 0.10);
+  transform: translateY(-1px);
+}
+
+/* Colour left border by side — set via data-side on the card in JS */
+.event-card[data-side="bride"] { border-left-color: var(--crimson); }
+.event-card[data-side="groom"] { border-left-color: var(--saffron); }
+.event-card[data-side="both"]  { border-left-color: var(--deep-purple); }
+
+.event-time {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+  color: var(--ink-soft);
+}
+
+.event-title {
+  margin: 0.25rem 0 0.4rem;
+  font-family: "Eczar", "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--crimson-deep);
+  line-height: 1.25;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.event-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.event-side::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.event-side[data-side="bride"]::before { background: var(--crimson); }
+.event-side[data-side="groom"]::before { background: var(--saffron); }
+.event-side[data-side="both"]::before  { background: var(--deep-purple); }
+
+.details-btn {
+  margin-top: 0.75rem;
+  border: 1.5px solid rgba(181, 18, 27, 0.28);
+  border-radius: 8px;
+  background: rgba(181, 18, 27, 0.06);
+  color: var(--crimson-deep);
+  padding: 0.44rem 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.details-btn:hover,
+.details-btn:focus-visible {
+  background: var(--crimson);
+  color: #fff;
+  border-color: var(--crimson);
+}
+
+.ritual-modal {
+  width: min(580px, 92vw);
+  border: none;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 24px 60px rgba(100, 18, 10, 0.28);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Matching temple-stripe band at top of modal */
+.ritual-modal::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--crimson)  0px,  var(--crimson)  28px,
+    var(--gold)     28px, var(--gold)     38px,
+    var(--saffron)  38px, var(--saffron)  66px,
+    var(--gold)     66px, var(--gold)     76px
+  );
+}
+
+.ritual-modal::backdrop {
+  background: rgba(25, 8, 5, 0.62);
+}
+
+.modal-inner {
+  padding: 1.4rem 1.6rem 1.6rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--crimson-pale);
+  color: var(--crimson-deep);
+  cursor: pointer;
+  transition: background 160ms, color 160ms;
+}
+
+.modal-close:hover {
+  background: var(--crimson);
+  color: #fff;
+}
+
+.modal-side {
+  margin: 0 0 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+.ritual-modal h2 {
+  margin: 0 0 0.2rem;
+  font-family: "Eczar", "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--crimson-deep);
+  line-height: 1.1;
+}
+
+.modal-time {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.modal-divider {
+  margin: 0.9rem 0;
+  border: none;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--crimson), var(--gold) 50%, transparent);
+}
+
+.modal-desc {
+  margin: 0;
+  line-height: 1.72;
+  color: var(--ink-soft);
+}
+
+.empty-state {
+  margin-top: 0.8rem;
+  padding: 1.2rem;
+  background: rgba(254, 246, 232, 0.88);
+  border-radius: 12px;
+  border: 1.5px dashed var(--line);
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  25% {
-    transform: translate(30px, 30px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  50% {
-    transform: translate(-20px, -20px);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  75% {
-    transform: translate(10px, 10px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  100% {
-    transform: translate(0, 0);
+}
+
+@media (min-width: 740px) {
+  .day-events {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .filter-panel {
+    padding: 0.9rem 1rem;
+  }
+
+  .day-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .ritual-modal h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal-inner {
+    padding: 1.1rem 1.2rem 1.4rem;
   }
 }
