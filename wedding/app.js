@@ -285,7 +285,7 @@ function initScratchCard() {
   ctx.fillStyle = '#7a1f26';
   ctx.font = 'bold 15px "Tenor Sans", sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('✨ SCRATCH HERE ✨', w / 2, h / 2 + 5);
+  ctx.fillText('✨ TOUCH HERE ✨', w / 2, h / 2 + 5);
   
   let isScratching = false;
   
