@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rajendra Mittal — In Memoriam | Rahul Mittal</title>
-  <meta name="description" content="In memoriam of Rajendra Mittal (Baburam) — beloved grandfather." />
+  <title>Rajendra Mittal (1947 – 2021) — In Memoriam | Rahul Mittal</title>
+  <meta name="description" content="In loving memory of Rajendra Mittal (1947 - 2021). Benefactor of the Rajendra Mittal International Excellence Award at Florida International University." />
   
   <!-- Open Graph / Meta -->
-  <meta property="og:title" content="Rajendra Mittal — In Memoriam" />
-  <meta property="og:description" content="In memoriam of Rajendra Mittal (Baburam)." />
+  <meta property="og:title" content="Rajendra Mittal (1947 – 2021) — In Memoriam" />
+  <meta property="og:description" content="In honor of Rajendra Mittal (Baburam) and his enduring dream of education for all." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/rajendra_mittal.png" />
   <meta property="og:url" content="https://rahulmittal.xyz/rajendra-mittal/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/rajendra_mittal.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +24,16 @@
   <style>
     :root {
       --bg-dark: #080b11;
-      --bg-card: rgba(15, 21, 37, 0.7);
-      --bg-card-hover: rgba(22, 31, 54, 0.85);
+      --bg-card: rgba(15, 21, 37, 0.75);
+      --bg-card-hover: rgba(22, 31, 54, 0.88);
       --border-color: rgba(255, 255, 255, 0.08);
-      --border-gold: rgba(212, 160, 23, 0.35);
+      --border-gold: rgba(212, 160, 23, 0.4);
       --accent-gold: #d4a017;
+      --accent-gold-glow: rgba(212, 160, 23, 0.25);
+      --accent-cyan: #38bdf8;
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
+      --text-sub: #6b7280;
       --font-heading: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
@@ -43,22 +50,36 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
+    /* Ambient Background Glows */
     .bg-glow-1 {
       position: absolute;
       top: -150px;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 160, 23, 0.08) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 70%);
+      width: 900px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 70%);
       filter: blur(100px);
       z-index: 0;
       pointer-events: none;
     }
 
+    .bg-glow-2 {
+      position: absolute;
+      bottom: 200px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+      filter: blur(100px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -85,7 +106,7 @@
       font-weight: 700;
       font-size: 1.45rem;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 40%, #d1d5db 100%);
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
@@ -107,70 +128,211 @@
 
     .nav-links a:hover { color: #ffffff; }
 
+    /* Main Content */
     main {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 900px;
-      padding: 5rem 1.5rem;
+      max-width: 1000px;
+      padding: 4rem 1.5rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 3rem;
+      gap: 4rem;
     }
 
-    .hero-tag {
+    /* Memorial Hero Section */
+    .memorial-hero {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      border: 2px solid var(--border-gold);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px var(--accent-gold-glow);
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent-gold);
-      background: rgba(212, 160, 23, 0.12);
-      padding: 0.4rem 0.95rem;
-      border-radius: 999px;
-      border: 1px solid rgba(212, 160, 23, 0.25);
+      letter-spacing: 0.12em;
+      width: fit-content;
     }
 
     h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-size: clamp(2.8rem, 5vw, 3.8rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }
 
-    .subtitle {
+    .dates {
       font-size: 1.25rem;
       color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .grandfather-title {
+      font-size: 1.1rem;
+      color: var(--text-muted);
       font-style: italic;
     }
 
-    .memorial-card {
+    .quote-box {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--accent-gold);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 16px 16px 0;
+      font-size: 1.05rem;
+      color: #e5e7eb;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Content Cards Grid */
+    .section-title-group {
+      margin-bottom: 2rem;
+    }
+
+    .section-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .info-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 24px;
-      padding: 3rem 2.5rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      padding: 2.2rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 1.8rem;
-      width: 100%;
-      max-width: 700px;
+      gap: 1.2rem;
     }
 
-    .memorial-card p {
+    .info-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+    }
+
+    .info-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    /* Scholarship Highlight Card */
+    .scholarship-banner {
+      background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(15, 21, 37, 0.9) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-gold-glow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .scholarship-banner h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .scholarship-banner p {
       color: var(--text-muted);
       font-size: 1.05rem;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .fiu-badge-list {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .fiu-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      background: rgba(212, 160, 23, 0.15);
+      border: 1px solid rgba(212, 160, 23, 0.3);
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 1rem;
     }
 
     .btn-gold {
@@ -194,21 +356,24 @@
       box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5);
     }
 
-    .btn-back {
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 0.8rem 1.4rem;
-      border-radius: 12px;
-      text-decoration: none;
       font-weight: 600;
+      font-size: 0.98rem;
+      padding: 0.95rem 1.8rem;
+      border-radius: 14px;
+      text-decoration: none;
       transition: all 0.25s ease;
     }
 
-    .btn-back:hover { background: rgba(255, 255, 255, 0.12); }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
 
     footer {
       width: 100%;
@@ -220,12 +385,29 @@
       font-size: 0.9rem;
       color: var(--text-muted);
     }
+
+    @media (max-width: 800px) {
+      .memorial-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-badge {
+        margin: 0 auto;
+      }
+      .quote-box {
+        border-left: none;
+        border-top: 3px solid var(--accent-gold);
+        border-radius: 16px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
 
+  <!-- HEADER -->
   <header>
     <div class="nav-container">
       <a href="/" class="brand-name">Rahul Mittal</a>
@@ -238,27 +420,111 @@
     </div>
   </header>
 
+  <!-- MAIN CONTAINER -->
   <main>
-    <span class="hero-tag">🕯️ In Memoriam</span>
-    <h1>Rajendra Mittal</h1>
-    <div class="subtitle">Baburam, my grandfather</div>
 
-    <div class="memorial-card">
-      <p>
-        In loving memory of <strong>Rajendra Mittal (Baburam)</strong>. A tribute page dedicated to honoring his life, memory, and enduring legacy.
-      </p>
-      <a href="http://rajendra-mittal.forevermissed.com/" target="_blank" rel="noopener" class="btn-gold">
-        <span>Visit Memorial on ForeverMissed ↗</span>
-      </a>
-    </div>
+    <!-- MEMORIAL HERO -->
+    <section class="memorial-hero">
+      <div class="portrait-wrapper">
+        <img src="assets/rajendra_mittal.png" alt="Rajendra Mittal (1947 - 2021)" class="portrait-img" />
+      </div>
 
-    <div>
-      <a href="/" class="btn-back">← Back to Main Portfolio</a>
-    </div>
+      <div class="hero-text">
+        <span class="hero-badge">🕯️ In Memoriam</span>
+        <h1>Rajendra Mittal</h1>
+        <div class="dates">November 14, 1947 – 2021</div>
+        <div class="grandfather-title">Baburam, my grandfather</div>
+        <div class="quote-box">
+          "Although he was unable to complete his college education, Mittal understood the transformative power of learning and ensured that his children and grandchildren received the best education possible."
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFE STORY & DEDICATION -->
+    <section>
+      <div class="section-title-group">
+        <span class="section-tag">Life &amp; Journey</span>
+        <h2 class="section-title">A Life Lived Larger Than Life</h2>
+      </div>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon">🌱</div>
+          <h3>Indore Origins &amp; Familial Love</h3>
+          <p>
+            Born on November 14th, 1947, in the vibrant city of Indore, India, Rajendra Mittal was the youngest of five brothers and the cherished favorite of five sisters. He embodied the true spirit of familial connection, warmth, and generosity.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">🎓</div>
+          <h3>Devotion to Education &amp; Music</h3>
+          <p>
+            With unwavering commitment, Mittal encouraged his children and grandchildren to excel academically and creatively. Rahul Mittal remembers his grandfather as the first to ask about school performance and a constant supporter of Rahul's music and extracurricular pursuits. Every single morning, Mittal personally dropped Rahul and his sister off at the school bus stop.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">🧪</div>
+          <h3>Pioneer in Food Technology</h3>
+          <p>
+            Driven by a passion for science and food technology, Mittal revolutionized the traditional Indian pickle industry with innovative recipes for condiments and ketchups, leaving a lasting flavorful imprint on the culinary landscape.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">🕊️</div>
+          <h3>Family &amp; Loving Legacy</h3>
+          <p>
+            Survived by his loving wife Suman, children Sandeep and Shilpa, and grandchildren Rahul and Anshika. Though he passed away in 2021 due to COVID-19, his spirit and generosity live on through the achievements and aspirations of his descendants.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENDURING SCHOLARSHIPS & INITIATIVES -->
+    <section>
+      <div class="scholarship-banner">
+        <div>
+          <span class="section-tag">Enduring Vision</span>
+          <h2>The Rajendra Mittal International Excellence Award at FIU</h2>
+        </div>
+
+        <p>
+          In honor of Rajendra Mittal's dream of <em>"education for all"</em> and comprehensive personal development, the Mittal family established the <strong>Rajendra Mittal International Excellence Award</strong> at <strong>Florida International University (FIU)</strong>.
+        </p>
+
+        <p>
+          This scholarship is dedicated to First-Time-In-College (FTIC) international students pursuing STEM fields, with preference for students enrolled in the <strong>Honors College</strong> and the <strong>College of Engineering and Computing</strong>. The award recognizes students who exemplify academic excellence, leadership, and well-rounded involvement in extracurricular activities both at FIU and in the broader community.
+        </p>
+
+        <div class="fiu-badge-list">
+          <span class="fiu-tag">Florida International University</span>
+          <span class="fiu-tag">FTIC International Students</span>
+          <span class="fiu-tag">STEM &amp; Honors College</span>
+          <span class="fiu-tag">College of Engineering &amp; Computing</span>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
+          In his honor, the Mittal family also supports the <strong>Round Rock Public Library</strong> in Texas, empowering patrons with high-quality educational and community resources.
+        </p>
+
+        <div class="cta-row">
+          <a href="http://rajendra-mittal.forevermissed.com/" target="_blank" rel="noopener" class="btn-gold">
+            <span>Visit ForeverMissed Memorial Tribute ↗</span>
+          </a>
+          <a href="/" class="btn-secondary">
+            ← Back to Main Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div>&copy; 2026 Rahul Mittal • In Memoriam</div>
+    <div>&copy; 2026 Rahul Mittal • In Memoriam: Rajendra Mittal (1947 – 2021)</div>
   </footer>
 
 </body>
