@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul & Shinjini | Save the Date #RahulKiJini</title>
+  <meta name="description" content="Save the Date for Rahul & Shinjini's Grand Marwari & Bengali Fusion Wedding in Kolkata on December 11-12, 2026 at ITC Fortune Park Panchwati. #RahulKiJini" />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Rahul & Shinjini | Save the Date" />
+  <meta property="og:description" content="Join us in Kolkata on December 11-12, 2026 as we celebrate our Marwari & Bengali fusion wedding! #RahulKiJini" />
+  <meta property="og:image" content="assets/fusion_couple.jpg" />
+
+  <link rel="icon" type="image/jpeg" href="assets/rs_monogram.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Floating Ambient Audio Player -->
+  <button id="audio-btn" aria-label="Toggle Audio Playback" title="Play Ambient Music">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+  </button>
+
+  <!-- Floating WhatsApp RSVP CTA -->
+  <a href="https://wa.me/919826063653?text=Hi%20Rahul%20%26%20Shinjini!%20I%20am%20so%20excited%20to%20save%20the%20date%20for%20your%20wedding!%20%23RahulKiJini" target="_blank" rel="noopener" class="floating-cta" aria-label="RSVP via WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 2c-5.514 0-9.997 4.483-9.997 9.997 0 1.76.459 3.473 1.332 4.986l-1.366 4.996 5.122-1.342c1.45.79 3.09 1.207 4.757 1.207 5.514 0 9.997-4.483 9.997-9.997 0-5.514-4.483-9.997-9.997-9.997zm5.854 14.167c-.247.691-1.444 1.319-2.002 1.378-.501.053-1.155.08-1.857-.145-.434-.139-1.002-.323-1.727-.636-3.044-1.316-5.029-4.385-5.181-4.588-.152-.203-1.237-1.646-1.237-3.14 0-1.494.783-2.228 1.06-2.529.277-.3.603-.375.805-.375.202 0 .403.002.578.01.187.008.437-.071.684.521.253.607.86 2.094.935 2.246.076.152.126.329.025.531-.101.203-.152.329-.303.506-.152.177-.319.395-.456.531-.152.152-.311.317-.134.62.177.303.787 1.299 1.687 2.101 1.157 1.031 2.133 1.35 2.436 1.502.303.152.48.127.657-.076.177-.203.758-.884.96-1.187.202-.303.404-.253.682-.152.278.101 1.768.834 2.071.986.303.152.505.228.581.354.076.126.076.732-.171 1.423z"/>
+    </svg>
+    <span>RSVP #RahulKiJini</span>
+  </a>
+
+  <!-- Falling Petals Canvas Overlay -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- CINEMATIC ENTRY GATE OVERLAY -->
+  <div id="entry-gate" class="entry-gate">
+    <div class="gate-particles"></div>
+    <img src="assets/rs_monogram.png" alt="R&S Monogram Logo" class="gate-monogram" />
+    <span class="gate-subtitle">Save The Date</span>
+    <h1 class="gate-title">Rahul <span class="gate-amp">&amp;</span> Shinjini</h1>
+    <div class="gate-tag">#RahulKiJini</div>
+    <p class="gate-hint">✨ Tap Anywhere to Enter the Celebration ✨</p>
+  </div>
+
+  <!-- MAIN SITE CONTENT -->
+  <div id="main-content">
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <img src="assets/howrah_bridge.jpg" alt="Howrah Bridge Kolkata Backdrop" class="howrah-bg" />
+      <div class="hero-overlay"></div>
+      
+      <div class="hero-card">
+        <div class="corner-ornament tl"></div>
+        <div class="corner-ornament tr"></div>
+        <div class="corner-ornament bl"></div>
+        <div class="corner-ornament br"></div>
+
+        <p class="invitation-header">|| Jai Shree Krishna || &bull; || Subho Bibaho ||</p>
+        <img src="assets/rs_monogram.png" alt="R&S Monogram Logo" class="monogram-badge" />
+        
+        <span class="save-the-date-lbl">Together With Their Families</span>
+        <h1 class="couple-names">Rahul <span class="couple-amp">&amp;</span> Shinjini</h1>
+        
+        <p class="fusion-tagline">
+          Request the honor of your presence as we unite two rich cultures in love — A Grand Fusion of Marwari Royal Splendor &amp; Bengali Heritage.
+        </p>
+
+        <div class="hashtag-badge">#RahulKiJini</div>
+        
+        <p class="wedding-dates-large">11 &bull; 12 DECEMBER 2026</p>
+        <p class="location-sub">Kolkata, West Bengal</p>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">Counting Down To Forever</span>
+      <h2 class="sec-title">Until We Tie the Sacred Knot</h2>
+
+      <div class="countdown-card">
+        <p style="font-family: var(--font-body); font-style: italic; color: var(--text-mid); font-size: 1.15rem;">
+          "Two souls, two traditions, one extraordinary journey ahead."
+        </p>
+
+        <div class="cd-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 340px; margin: 2rem auto 0;">
+          <div class="cd-box">
+            <span id="cd-months" class="cd-number">00</span>
+            <span class="cd-label">Months</span>
+          </div>
+          <div class="cd-box">
+            <span id="cd-days" class="cd-number">00</span>
+            <span class="cd-label">Days</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SCRATCH CARD -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">A Special Surprise</span>
+      <h2 class="sec-title">Scratch to Reveal the Secret Message</h2>
+
+      <div class="scratch-card-container">
+        <p style="font-family: var(--font-body); color: var(--text-mid);">
+          Use your finger or mouse to scratch the golden foil below and reveal our special wedding message!
+        </p>
+
+        <div class="scratch-area">
+          <div class="scratch-hidden-content" style="padding: 1.2rem 1rem;">
+            <p class="shloka-text" style="font-family: var(--font-body); font-size: 1.05rem; line-height: 1.6; color: var(--gold-light); font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">
+              मङ्गलं भगवान् विष्णुः, मङ्गलं गरुडध्वजः।<br />
+              मङ्गलं पुण्डरीकाक्षः, मङ्गलाय तनो हरिः॥
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 0.6rem; color: #ffffff; letter-spacing: 0.15em; font-family: var(--font-sans);">#RahulKiJini • Dec 11-12, 2026</p>
+          </div>
+          <canvas id="scratch-canvas"></canvas>
+        </div>
+
+        <p class="scratch-instruction">✨ Drag across the gold card above ✨</p>
+      </div>
+    </section>
+
+    <!-- FUSION STORY & PORTRAIT SHOWCASE -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">Our Love Story</span>
+      <h2 class="sec-title">A Match Made in Friendship</h2>
+
+      <div class="portrait-showcase">
+        <div class="portrait-img-wrapper">
+          <img src="assets/fusion_couple.jpg" alt="Rahul and Shinjini Marwari Bengali Fusion Portrait" />
+        </div>
+        <div class="story-content">
+          <h3 class="story-heading">Marwari Royalty Meets Bengali Charm</h3>
+          <p class="story-text">
+            From the vibrant traditions of the Mittal family to the artistic elegance of the De family, Rahul and Shinjini's union is a harmony of two joyous worlds.
+          </p>
+          <p class="story-text">
+            Join us as we blend majestic Marwari celebrations with Bengali warmth!
+          </p>
+          <div style="font-family: var(--font-script); font-size: 2rem; color: var(--gold-dark); text-align: right; margin-top: 1rem;">
+            Rahul &amp; Shinjini
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS TIMELINE SECTION -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">Celebration Itinerary</span>
+      <h2 class="sec-title">Wedding Ceremonies</h2>
+
+      <div class="events-grid">
+        
+        <!-- Event 1: Engagement & Sangeet -->
+        <div class="event-card">
+          <span class="event-icon">💃💍</span>
+          <h3 class="event-title">Engagement &amp; Sangeet</h3>
+          <p class="event-date-time">Dec 11, 2026 • Evening Onwards</p>
+          <!-- <div class="dresscode-box">
+            <span class="dresscode-lbl">Dress Code</span>
+            <span class="dresscode-val">Indo-Western Glitz &amp; Royal Velvet</span>
+          </div> -->
+          <!-- <a href="https://maps.google.com/?q=Fortune+Park+Panchwati+Howrah+Kolkata" target="_blank" rel="noopener" class="btn-directions">
+            📍 Get Directions
+          </a> -->
+        </div>
+
+        <!-- Event 2: Haldi & Carnival -->
+        <div class="event-card">
+          <span class="event-icon">🌿🎪</span>
+          <h3 class="event-title">Haldi &amp; Carnival</h3>
+          <p class="event-date-time">Dec 12, 2026 • Morning Onwards</p>
+          <!-- <div class="dresscode-box">
+            <span class="dresscode-lbl">Dress Code</span>
+            <span class="dresscode-val">Yellow Festive &amp; Tropical Floral</span>
+          </div> -->
+          <!-- <a href="https://maps.google.com/?q=Fortune+Park+Panchwati+Howrah+Kolkata" target="_blank" rel="noopener" class="btn-directions">
+            📍 Get Directions
+          </a> -->
+        </div>
+
+
+        <!-- Event 3: Grand Wedding Ceremony -->
+        <div class="event-card">
+          <span class="event-icon">👑🌺</span>
+          <h3 class="event-title">Wedding Ceremony</h3>
+          <p class="event-date-time">Dec 12, 2026 • Night Onwards</p>
+          <!-- <div class="dresscode-box">
+            <span class="dresscode-lbl">Dress Code</span>
+            <span class="dresscode-val">Marwari Sherwani / Bengali Red Banarasi</span>
+          </div> -->
+          <!-- <a href="https://maps.google.com/?q=Fortune+Park+Panchwati+Howrah+Kolkata" target="_blank" rel="noopener" class="btn-directions">
+            📍 Get Directions
+          </a> -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VENUE SHOWCASE -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">The Venue</span>
+
+      <div class="venue-card">
+        <div class="venue-details">
+          <h3 class="venue-name">ITC Fortune Park Panchwati</h3>
+          <p class="venue-address">
+            Kolkata-NH6, Kona Expressway, Howrah,<br />
+            Kolkata, West Bengal 711302, India
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY BLESSINGS SECTION -->
+    <section class="section-wrapper">
+      <span class="sec-subtitle">With Blessings From</span>
+      <h2 class="sec-title">The Families</h2>
+
+      <div class="family-grid">
+        <div class="family-card">
+          <span class="family-side">Ladke Wale</span>
+          <h3 class="family-head">The Mittal Family</h3>
+          <p class="family-members">
+            With Love &amp; Compliments from<br />
+            The Mittal Family
+          </p>
+        </div>
+
+        <div class="family-card">
+          <span class="family-side">Ladki Wale</span>
+          <h3 class="family-head">The De Family</h3>
+          <p class="family-members">
+            With Love &amp; Compliments from<br />
+            The De Family
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer-section">
+      <img src="assets/rs_monogram.png" alt="R&S Monogram" class="footer-monogram" />
+      <p class="footer-quote">
+        "Your presence and blessings will make our special day truly unforgettable."
+      </p>
+      <div class="footer-hashtag">#RahulKiJini</div>
+      
+      <div style="margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/919826063653?text=Hi%20Rahul%20%26%20Shinjini!%20I%20am%20so%20excited%20to%20save%20the%20date%20for%20your%20wedding!%20%23RahulKiJini" target="_blank" rel="noopener" class="btn-directions" style="background: #25d366; color: #fff; font-weight: 700;">
+          💬 RSVP on WhatsApp (+91 9826063653)
+        </a>
+
+        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Rahul %26 Shinjini Wedding %23RahulKiJini%0ADESCRIPTION:Marwari %26 Bengali Fusion Wedding Celebration at ITC Fortune Park Panchwati%0ALOCATION:ITC Fortune Park Panchwati%2C Howrah%2C Kolkata%0ADTSTART:20261211T120000Z%0ADTEND:20261212T200000Z%0AEND:VEVENT%0AEND:VCALENDAR" download="Rahul_Shinjini_Wedding.ics" class="btn-directions" style="background: var(--gold); color: var(--burgundy-dark); font-weight: 700;">
+          📅 Add to Google / Apple Calendar
+        </a>
+      </div>
+
+      <p class="footer-credit">
+        Crafted with ❤️ for Rahul &amp; Shinjini • December 11–12, 2026 • Kolkata, India
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
