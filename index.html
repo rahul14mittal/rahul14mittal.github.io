@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rahul Mittal | Coming Soon</title>
-  <meta name="description" content="Personal website of Rahul Mittal. Currently under construction. Visit /wedding for Rahul & Shinjini's wedding website." />
+  <title>Rahul Mittal | Principal Software Engineer</title>
+  <meta name="description" content="Personal website of Rahul Mittal — Principal Software Engineer at Dell & M.S. CS Graduate Student at UT Austin. Visit /wedding for Rahul & Shinjini's wedding website." />
   
   <!-- Open Graph / Meta -->
-  <meta property="og:title" content="Rahul Mittal | Coming Soon" />
-  <meta property="og:description" content="Personal website of Rahul Mittal. Visit /wedding for Rahul & Shinjini's wedding invitation." />
+  <meta property="og:title" content="Rahul Mittal | Principal Software Engineer" />
+  <meta property="og:description" content="Principal Software Engineer at Dell & M.S. CS Student at UT Austin. Visit /wedding for Rahul & Shinjini's wedding website." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rahulmittal.xyz" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="wedding/assets/rs_monogram.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #090a0f;
-      --bg-card: rgba(18, 22, 34, 0.65);
+      --bg-dark: #080b11;
+      --bg-card: rgba(15, 21, 37, 0.7);
+      --bg-card-hover: rgba(22, 31, 54, 0.85);
       --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(212, 160, 23, 0.4);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --border-gold: rgba(212, 160, 23, 0.4);
+      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
       --accent-gold: #d4a017;
-      --accent-glow: rgba(212, 160, 23, 0.15);
+      --accent-gold-glow: rgba(212, 160, 23, 0.2);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
+      --text-sub: #6b7280;
       --font-heading: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
@@ -36,6 +45,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-dark);
       color: var(--text-main);
@@ -43,80 +56,156 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
       position: relative;
       overflow-x: hidden;
-      padding: 2rem 1.5rem;
+      line-height: 1.6;
     }
 
     /* Ambient Background Glows */
     .bg-glow-1 {
       position: absolute;
-      top: -10%;
+      top: -150px;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
+      width: 800px;
       height: 600px;
-      background: radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, rgba(120, 40, 200, 0.05) 50%, transparent 70%);
-      filter: blur(80px);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+      filter: blur(100px);
       z-index: 0;
       pointer-events: none;
     }
 
     .bg-glow-2 {
       position: absolute;
-      bottom: -10%;
-      right: 10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(230, 80, 100, 0.08) 0%, transparent 70%);
-      filter: blur(90px);
+      top: 500px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.06) 0%, transparent 70%);
+      filter: blur(100px);
       z-index: 0;
       pointer-events: none;
     }
 
-    /* Header */
+    /* Header Navigation */
     header {
-      position: relative;
-      z-index: 1;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       width: 100%;
-      max-width: 900px;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 11, 17, 0.8);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 1rem;
     }
 
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .brand-name {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 30%, #9ca3af 100%);
+      background: linear-gradient(135deg, #ffffff 40%, #9ca3af 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .status-badge {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-wedding-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold) !important;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .nav-wedding-btn:hover {
+      background: rgba(212, 160, 23, 0.22);
+      transform: translateY(-1px);
+      box-shadow: 0 0 15px var(--accent-gold-glow);
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      padding-top: 1rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent-cyan);
       font-size: 0.85rem;
-      color: var(--text-muted);
-      backdrop-filter: blur(12px);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: var(--accent-gold);
-      box-shadow: 0 0 10px var(--accent-gold);
+      background-color: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
       animation: pulse 2s infinite;
     }
 
@@ -125,158 +214,350 @@
       50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    /* Main Container */
-    main {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 750px;
-      text-align: center;
-      margin: auto 0;
-      padding: 2.5rem 0;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent-gold);
-      margin-bottom: 1.2rem;
-    }
-
-    h1 {
+    .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.15;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 1.2rem;
-      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 100%);
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .highlight-text {
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .subtitle {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+    .hero-bio {
+      font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 580px;
-      margin: 0 auto 3rem auto;
+      line-height: 1.7;
+      margin-bottom: 2rem;
     }
 
-    /* Feature Banner Card for Wedding Site */
-    .wedding-banner {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      text-align: left;
+    .hero-bio strong {
+      color: #ffffff;
+    }
+
+    .hero-cta-group {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 1.2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .wedding-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #d4a017, #f3e5ab, #d4a017);
-    }
-
-    .wedding-banner:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-glow);
-    }
-
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .banner-tag {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-gold);
-      background: rgba(212, 160, 23, 0.12);
-      padding: 0.3rem 0.7rem;
-      border-radius: 6px;
-      border: 1px solid rgba(212, 160, 23, 0.25);
-    }
-
-    .wedding-banner h2 {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .wedding-banner p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .banner-cta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
     }
 
-    .btn-wedding {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%);
-      color: #090a0f;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #1d4ed8 100%);
+      color: #ffffff;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       padding: 0.85rem 1.6rem;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
     }
 
-    .btn-wedding:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(212, 160, 23, 0.45);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Card / Feature Box */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2.2rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .card-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 1.2rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-sub);
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-val {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .stat-sub {
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      margin-top: 0.2rem;
+    }
+
+    /* Featured Event Banner Card */
+    .wedding-banner {
+      background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(18, 22, 34, 0.8) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px var(--accent-gold-glow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .wedding-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 160, 23, 0.3);
+    }
+
+    .wedding-banner-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 650px;
+    }
+
+    .wedding-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      background: rgba(212, 160, 23, 0.15);
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      width: fit-content;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .wedding-banner h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .wedding-banner p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #d4a017 0%, #b8860b 100%);
+      color: #080b11;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.95rem 1.8rem;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(212, 160, 23, 0.35);
+    }
+
+    .btn-gold:hover {
+      transform: scale(1.04);
       background: linear-gradient(135deg, #e5b128 0%, #c9971c 100%);
+      box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5);
     }
 
-    .btn-wedding svg {
+    .btn-gold svg {
       width: 18px;
       height: 18px;
       transition: transform 0.2s ease;
       fill: currentColor;
     }
 
-    .btn-wedding:hover svg {
+    .btn-gold:hover svg {
       transform: translateX(4px);
     }
 
-    .date-badge {
-      font-size: 0.88rem;
-      color: #d1d5db;
+    /* Section Styling */
+    .section-title-group {
+      margin-bottom: 2rem;
+    }
+
+    .section-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent-cyan);
+    }
+
+    .info-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .card-meta {
+      font-size: 0.88rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Tech Stack Badges */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #d1d5db;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+    }
+
+    /* Contact Section */
+    .contact-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .contact-banner h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .contact-banner p {
+      color: var(--text-muted);
+      max-width: 600px;
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* Footer */
@@ -284,19 +565,27 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 900px;
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      width: 100%;
+      max-width: 1100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.85rem;
-      color: #6b7280;
+      font-size: 0.9rem;
+      color: var(--text-sub);
     }
 
     .footer-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
 
     .footer-links a {
@@ -306,23 +595,25 @@
     }
 
     .footer-links a:hover {
-      color: var(--accent-gold);
+      color: var(--accent-cyan);
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 1.5rem 1rem;
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
-      .banner-cta-row {
+      .wedding-banner {
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
       }
-      .btn-wedding {
+      .btn-gold {
+        width: 100%;
         justify-content: center;
       }
-      footer {
+      .footer-container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.2rem;
         text-align: center;
       }
     }
@@ -333,49 +624,231 @@
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
 
+  <!-- HEADER NAVIGATION -->
   <header>
-    <div class="logo">Rahul Mittal</div>
-    <div class="status-badge">
-      <span class="status-dot"></span>
-      Under Construction
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-name">Rahul Mittal</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#engagement">Mentorship</a></li>
+        <li>
+          <a href="/wedding/" class="nav-wedding-btn">
+            💍 Wedding Site
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
 
+  <!-- MAIN CONTAINER -->
   <main>
-    <span class="hero-badge">Welcome</span>
-    <h1>Something Extraordinary Is Under Construction</h1>
-    <p class="subtitle">
-      My main portfolio and personal website are currently receiving a fresh new look. In the meantime, feel free to explore our digital wedding invitation!
-    </p>
 
-    <!-- Wedding Site Card -->
-    <div class="wedding-banner">
-      <div class="banner-header">
-        <span class="banner-tag">Featured Event</span>
-        <span class="date-badge">📅 Dec 11-12, 2026</span>
+    <!-- HERO SECTION -->
+    <section id="about" class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          Principal Software Engineer @ Dell
+        </div>
+        <h1>
+          Building Systems.<br />
+          Advancing <span class="highlight-text">Intelligence.</span>
+        </h1>
+        <p class="hero-bio">
+          Hi, I'm <strong>Rahul Mittal</strong>. I lead high-performance software engineering projects at <strong>Dell</strong> while pursuing a part-time Master's in Computer Science &amp; Artificial Intelligence at <strong>The University of Texas at Austin ('27)</strong>. Alumni of <strong>Florida International University ('21)</strong>.
+        </p>
+        <div class="hero-cta-group">
+          <a href="/wedding/" class="btn-gold">
+            <span>Visit Wedding Website 💍</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" class="btn-secondary">
+            LinkedIn Profile ↗
+          </a>
+        </div>
       </div>
-      <h2>Rahul & Shinjini's Wedding Website 💍</h2>
-      <p>
-        Join us in celebrating our Marwari & Bengali fusion wedding in Kolkata! View event details, schedule, location guides, and RSVP for #RahulKiJini.
-      </p>
-      <div class="banner-cta-row">
-        <a href="/wedding/" class="btn-wedding">
-          <span>Visit Wedding Site</span>
-          <svg viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="card-stat-grid">
+            <div class="stat-box">
+              <div class="stat-label">Current Role</div>
+              <div class="stat-val">Principal Engineer</div>
+              <div class="stat-sub">Dell Technologies</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Graduate Degree</div>
+              <div class="stat-val">M.S. CS / AI</div>
+              <div class="stat-sub">UT Austin ('27)</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Undergraduate</div>
+            <div class="stat-val">B.S. Computer Science ('21)</div>
+            <div class="stat-sub">Florida International University</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Core Focus</div>
+            <div class="stat-val">Distributed Systems &amp; AI</div>
+            <div class="stat-sub">Enterprise Infrastructure &amp; Cloud</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED WEDDING BANNER -->
+    <section id="wedding">
+      <div class="wedding-banner">
+        <div class="wedding-banner-content">
+          <span class="wedding-tag">💍 Save The Date — #RahulKiJini</span>
+          <h2>Rahul &amp; Shinjini's Wedding Website</h2>
+          <p>
+            We're getting married! Join us in Kolkata on December 11-12, 2026 for our Marwari &amp; Bengali fusion wedding celebration. Explore event schedules, venue details, accommodations, and RSVP online.
+          </p>
+        </div>
+        <a href="/wedding/" class="btn-gold">
+          <span>Explore Wedding Site</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">URL: rahulmittal.xyz/wedding</span>
       </div>
-    </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+      <div class="section-title-group">
+        <span class="section-tag">Career Journey</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon-box">💻</div>
+          <div>
+            <h3>Principal Software Engineer</h3>
+            <div class="card-meta">Dell Technologies</div>
+          </div>
+          <p>
+            Architecting and delivering enterprise-scale software solutions, cloud infrastructure, and resilient distributed platforms at Dell.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">System Architecture</span>
+            <span class="tech-badge">Cloud Infrastructure</span>
+            <span class="tech-badge">Distributed Systems</span>
+            <span class="tech-badge">AI Integration</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">⚡</div>
+          <div>
+            <h3>Engineering &amp; Innovation</h3>
+            <div class="card-meta">Enterprise Infrastructure</div>
+          </div>
+          <p>
+            Driving core technical architecture, software performance optimization, and cross-functional engineering leadership.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">Microservices</span>
+            <span class="tech-badge">DevOps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+      <div class="section-title-group">
+        <span class="section-tag">Academics</span>
+        <h2 class="section-title">Education &amp; Advanced Research</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon-box">🤘</div>
+          <div>
+            <h3>The University of Texas at Austin</h3>
+            <div class="card-meta">Master of Science in Computer Science / AI • 2024 – 2027 (Expected)</div>
+          </div>
+          <p>
+            Pursuing a part-time graduate degree specializing in Computer Science and Artificial Intelligence algorithms, machine learning systems, and computational theory.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">🐾</div>
+          <div>
+            <h3>Florida International University</h3>
+            <div class="card-meta">Bachelor of Science in Computer Science • Graduated 2021</div>
+          </div>
+          <p>
+            Completed undergraduate studies in Computer Science, laying the foundation for software engineering, algorithms, and software design principles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENTORSHIP & ENGAGEMENTS SECTION -->
+    <section id="engagement">
+      <div class="section-title-group">
+        <span class="section-tag">Community &amp; Leadership</span>
+        <h2 class="section-title">Mentorship &amp; Speaking Engagements</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon-box">🎓</div>
+          <h3>College &amp; Early Career Mentorship</h3>
+          <p>
+            Passionate about guiding students and early-career software engineers through technical growth, career transitions, college advising, and industry readiness.
+          </p>
+          <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none; font-size: 0.92rem;">
+            Reach out for mentorship →
+          </a>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">🎤</div>
+          <h3>Tech Talks &amp; Engagements</h3>
+          <p>
+            Available for speaking engagements, technical presentations, engineering panel discussions, and guest lectures on software engineering and career paths.
+          </p>
+          <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none; font-size: 0.92rem;">
+            Contact for speaking requests →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT BANNER -->
+    <section>
+      <div class="contact-banner">
+        <h2>Let's Connect</h2>
+        <p>
+          Whether you want to discuss software engineering, mentorship opportunities, or celebrate with us at our wedding, feel free to reach out!
+        </p>
+        <div class="contact-links">
+          <a href="/wedding/" class="btn-gold">Visit Wedding Site 💍</a>
+          <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" class="btn-primary">LinkedIn Profile</a>
+          <a href="https://github.com/rahul14mittal" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div>&copy; 2026 Rahul Mittal. All rights reserved.</div>
-    <div class="footer-links">
-      <a href="/wedding/">Wedding Website</a>
-      <a href="https://github.com/rahul14mittal" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="footer-container">
+      <div>&copy; 2026 Rahul Mittal. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/wedding/">Wedding Website</a>
+        <a href="https://sites.google.com/view/rahulm14/rahul-mittal-about" target="_blank" rel="noopener">Google Site</a>
+        <a href="https://github.com/rahul14mittal" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </footer>
 
