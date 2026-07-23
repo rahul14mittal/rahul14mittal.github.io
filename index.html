@@ -522,20 +522,155 @@
       color: var(--accent-cyan);
     }
 
+    /* Mobile Nav Toggle Button */
+    .mobile-nav-toggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.6rem;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      z-index: 110;
+    }
+
+    .mobile-nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Responsive Breakpoints */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
       }
 
       .btn-gold {
         width: 100%;
         justify-content: center;
       }
+
       .footer-container {
         flex-direction: column;
         gap: 1.2rem;
         text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0.9rem 1.2rem;
+      }
+
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 11, 17, 0.96);
+        backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      .nav-links.active {
+        max-height: 420px;
+        padding: 1rem 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.85rem 1.5rem;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      main {
+        padding: 2rem 1.2rem;
+        gap: 3rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 7.5vw, 3.2rem);
+      }
+
+      .hero-bio {
+        font-size: 1.05rem;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 0.9rem 1.4rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-banner {
+        padding: 2.2rem 1.4rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 1.5rem;
+      }
+
+      .info-card {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -551,6 +686,11 @@
       <a href="#" class="brand">
         <span class="brand-name">Rahul Mittal</span>
       </a>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -777,6 +917,25 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileNavToggle && navLinks) {
+      mobileNavToggle.addEventListener('click', () => {
+        mobileNavToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>

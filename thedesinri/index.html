@@ -222,6 +222,30 @@
       font-size: 0.9rem;
       color: var(--text-muted);
     }
+
+    @media (max-width: 600px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.9rem 1.2rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      main {
+        padding: 2.5rem 1.2rem;
+        gap: 2.5rem;
+      }
+      .card {
+        padding: 1.6rem;
+      }
+      .btn-back {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
