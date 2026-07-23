@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rahul Mittal | Principal Software Engineer</title>
-  <meta name="description" content="Personal website of Rahul Mittal — Principal Software Engineer at Dell & M.S. CS Graduate Student at UT Austin. Visit /wedding for Rahul & Shinjini's wedding website." />
+  <title>Rahul Mittal | Principal Software Engineer & M.S. CS Student</title>
+  <meta name="description" content="Personal website of Rahul Mittal — Principal Software Engineer at Dell, M.S. CS student at UT Austin, and FIU Summa Cum Laude alumnus. Visit /wedding for Rahul & Shinjini's wedding website." />
   
   <!-- Open Graph / Meta -->
   <meta property="og:title" content="Rahul Mittal | Principal Software Engineer" />
-  <meta property="og:description" content="Principal Software Engineer at Dell & M.S. CS Student at UT Austin. Visit /wedding for Rahul & Shinjini's wedding website." />
+  <meta property="og:description" content="Principal Software Engineer at Dell, M.S. CS Student at UT Austin ('27), FIU Presidential Scholar & Summa Cum Laude Alumnus ('21)." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rahulmittal.xyz" />
 
@@ -26,7 +26,7 @@
       --bg-card: rgba(15, 21, 37, 0.7);
       --bg-card-hover: rgba(22, 31, 54, 0.85);
       --border-color: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(56, 189, 248, 0.3);
+      --border-accent: rgba(56, 189, 248, 0.35);
       --border-gold: rgba(212, 160, 23, 0.4);
       --accent-cyan: #38bdf8;
       --accent-blue: #3b82f6;
@@ -59,7 +59,7 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* Ambient Background Glows */
@@ -68,8 +68,8 @@
       top: -150px;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
+      width: 900px;
+      height: 650px;
       background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
       filter: blur(100px);
       z-index: 0;
@@ -78,12 +78,12 @@
 
     .bg-glow-2 {
       position: absolute;
-      top: 500px;
+      top: 600px;
       right: -100px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 160, 23, 0.06) 0%, transparent 70%);
-      filter: blur(100px);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.07) 0%, transparent 70%);
+      filter: blur(110px);
       z-index: 0;
       pointer-events: none;
     }
@@ -95,7 +95,7 @@
       z-index: 100;
       width: 100%;
       backdrop-filter: blur(16px);
-      background: rgba(8, 11, 17, 0.8);
+      background: rgba(8, 11, 17, 0.82);
       border-bottom: 1px solid var(--border-color);
       display: flex;
       justify-content: center;
@@ -120,7 +120,7 @@
     .brand-name {
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, #ffffff 40%, #9ca3af 100%);
       -webkit-background-clip: text;
@@ -150,7 +150,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.45rem 1rem;
+      padding: 0.45rem 1.1rem;
       border-radius: 999px;
       background: rgba(212, 160, 23, 0.12);
       border: 1px solid var(--border-gold);
@@ -174,7 +174,7 @@
       padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 4.5rem;
     }
 
     /* Hero Section */
@@ -190,7 +190,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.4rem 0.9rem;
+      padding: 0.45rem 0.95rem;
       border-radius: 999px;
       background: rgba(56, 189, 248, 0.08);
       border: 1px solid rgba(56, 189, 248, 0.2);
@@ -230,7 +230,7 @@
     }
 
     .hero-bio {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 2rem;
@@ -297,48 +297,48 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.2rem;
       position: relative;
     }
 
     .card-stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
+      gap: 1rem;
     }
 
     .stat-box {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 16px;
-      padding: 1.2rem;
+      padding: 1.1rem;
     }
 
     .stat-label {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-sub);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     .stat-val {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #ffffff;
     }
 
     .stat-sub {
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       color: var(--accent-cyan);
       margin-top: 0.2rem;
     }
 
     /* Featured Event Banner Card */
     .wedding-banner {
-      background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(18, 22, 34, 0.8) 100%);
+      background: linear-gradient(135deg, rgba(212, 160, 23, 0.08) 0%, rgba(18, 22, 34, 0.85) 100%);
       border: 1px solid var(--border-gold);
       border-radius: 24px;
       padding: 2.5rem;
@@ -508,6 +508,27 @@
       line-height: 1.6;
     }
 
+    /* Accolades List */
+    .accolade-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .accolade-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .accolade-item span {
+      color: var(--accent-gold);
+    }
+
     /* Tech Stack Badges */
     .tech-stack {
       display: flex;
@@ -522,7 +543,7 @@
       color: #d1d5db;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.3rem 0.7rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 8px;
     }
 
@@ -634,6 +655,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#honors">Honors</a></li>
         <li><a href="#engagement">Mentorship</a></li>
         <li>
           <a href="/wedding/" class="nav-wedding-btn">
@@ -652,18 +674,20 @@
       <div class="hero-left">
         <div class="hero-badge">
           <span class="status-dot"></span>
-          Principal Software Engineer @ Dell
+          Principal Software Engineer @ Dell Technologies
         </div>
         <h1>
           Building Systems.<br />
           Advancing <span class="highlight-text">Intelligence.</span>
         </h1>
         <p class="hero-bio">
-          Hi, I'm <strong>Rahul Mittal</strong>. I lead high-performance software engineering projects at <strong>Dell</strong> while pursuing a part-time Master's in Computer Science &amp; Artificial Intelligence at <strong>The University of Texas at Austin ('27)</strong>. Alumni of <strong>Florida International University ('21)</strong>.
+          Hi, I'm <strong>Rahul Mittal</strong>. I lead high-impact software engineering projects at <strong>Dell Technologies</strong> while pursuing my Master's in Computer Science &amp; Artificial Intelligence at <strong>The University of Texas at Austin ('27)</strong>. 
+          <br /><br />
+          I graduated <strong>Summa Cum Laude</strong> from <strong>Florida International University ('21)</strong>, where I was a Presidential Scholar, Homecoming Prince, 2023 Trail of the Torch bearer, and featured on Amazon Prime Video's <em>The College Tour</em>.
         </p>
         <div class="hero-cta-group">
           <a href="/wedding/" class="btn-gold">
-            <span>Visit Wedding Website 💍</span>
+            <span>Visit Wedding Site 💍</span>
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" class="btn-secondary">
@@ -689,12 +713,12 @@
           <div class="stat-box">
             <div class="stat-label">Undergraduate</div>
             <div class="stat-val">B.S. Computer Science ('21)</div>
-            <div class="stat-sub">Florida International University</div>
+            <div class="stat-sub">FIU • Summa Cum Laude</div>
           </div>
           <div class="stat-box">
-            <div class="stat-label">Core Focus</div>
-            <div class="stat-val">Distributed Systems &amp; AI</div>
-            <div class="stat-sub">Enterprise Infrastructure &amp; Cloud</div>
+            <div class="stat-label">Featured Profile</div>
+            <div class="stat-val">Amazon Prime Video</div>
+            <div class="stat-sub">The College Tour: FIU</div>
           </div>
         </div>
       </div>
@@ -707,7 +731,7 @@
           <span class="wedding-tag">💍 Save The Date — #RahulKiJini</span>
           <h2>Rahul &amp; Shinjini's Wedding Website</h2>
           <p>
-            We're getting married! Join us in Kolkata on December 11-12, 2026 for our Marwari &amp; Bengali fusion wedding celebration. Explore event schedules, venue details, accommodations, and RSVP online.
+            We're getting married! Join us in Kolkata on December 11-12, 2026 for our Marwari &amp; Bengali fusion wedding celebration. Explore event schedules, venue guides, accommodations, and RSVP online.
           </p>
         </div>
         <a href="/wedding/" class="btn-gold">
@@ -728,15 +752,15 @@
           <div class="card-icon-box">💻</div>
           <div>
             <h3>Principal Software Engineer</h3>
-            <div class="card-meta">Dell Technologies</div>
+            <div class="card-meta">Dell Technologies • Austin, Texas</div>
           </div>
           <p>
-            Architecting and delivering enterprise-scale software solutions, cloud infrastructure, and resilient distributed platforms at Dell.
+            Leading software engineering architecture, distributed storage, and cloud infrastructure systems at Dell Technologies. Originally joined as Data / Software Engineer after graduating from FIU.
           </p>
           <div class="tech-stack">
-            <span class="tech-badge">System Architecture</span>
-            <span class="tech-badge">Cloud Infrastructure</span>
             <span class="tech-badge">Distributed Systems</span>
+            <span class="tech-badge">Enterprise Cloud</span>
+            <span class="tech-badge">System Architecture</span>
             <span class="tech-badge">AI Integration</span>
           </div>
         </div>
@@ -744,17 +768,17 @@
         <div class="info-card">
           <div class="card-icon-box">⚡</div>
           <div>
-            <h3>Engineering &amp; Innovation</h3>
-            <div class="card-meta">Enterprise Infrastructure</div>
+            <h3>Software &amp; Data Engineering</h3>
+            <div class="card-meta">Dell Technologies</div>
           </div>
           <p>
-            Driving core technical architecture, software performance optimization, and cross-functional engineering leadership.
+            Architected enterprise pipeline tools, automated analytics, and high-performance software systems driving data-driven decisions.
           </p>
           <div class="tech-stack">
             <span class="tech-badge">Python</span>
             <span class="tech-badge">C++</span>
+            <span class="tech-badge">Data Engineering</span>
             <span class="tech-badge">Microservices</span>
-            <span class="tech-badge">DevOps</span>
           </div>
         </div>
       </div>
@@ -764,7 +788,7 @@
     <section id="education">
       <div class="section-title-group">
         <span class="section-tag">Academics</span>
-        <h2 class="section-title">Education &amp; Advanced Research</h2>
+        <h2 class="section-title">Education &amp; Graduate Studies</h2>
       </div>
       <div class="cards-grid">
         <div class="info-card">
@@ -774,19 +798,49 @@
             <div class="card-meta">Master of Science in Computer Science / AI • 2024 – 2027 (Expected)</div>
           </div>
           <p>
-            Pursuing a part-time graduate degree specializing in Computer Science and Artificial Intelligence algorithms, machine learning systems, and computational theory.
+            Pursuing a part-time M.S. degree focusing on Artificial Intelligence, advanced machine learning models, distributed systems, and computer science theory.
           </p>
         </div>
 
         <div class="info-card">
           <div class="card-icon-box">🐾</div>
           <div>
-            <h3>Florida International University</h3>
+            <h3>Florida International University (FIU)</h3>
             <div class="card-meta">Bachelor of Science in Computer Science • Graduated 2021</div>
           </div>
           <p>
-            Completed undergraduate studies in Computer Science, laying the foundation for software engineering, algorithms, and software design principles.
+            Graduated <strong>Summa Cum Laude</strong>. Recognized as a Presidential Scholar, Homecoming Prince, and Trail of the Torch Bearer.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS & ACCOLADES SECTION -->
+    <section id="honors">
+      <div class="section-title-group">
+        <span class="section-tag">Recognition</span>
+        <h2 class="section-title">Honors, Awards &amp; Media Features</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon-box">📺</div>
+          <h3>Amazon Prime Video Feature</h3>
+          <div class="card-meta">The College Tour: FIU Episode</div>
+          <p>
+            Featured in the Amazon Prime Video docuseries <em>The College Tour</em>, highlighting student life, leadership, and academic excellence at FIU.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">🏆</div>
+          <h3>FIU Leadership &amp; Honors</h3>
+          <div class="card-meta">Presidential Scholar &amp; Homecoming Prince</div>
+          <ul class="accolade-list">
+            <li class="accolade-item"><span>★</span> Summa Cum Laude Graduate ('21)</li>
+            <li class="accolade-item"><span>★</span> FIU Presidential Scholar</li>
+            <li class="accolade-item"><span>★</span> FIU Homecoming Prince</li>
+            <li class="accolade-item"><span>★</span> 2023 Trail of the Torch Bearer</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -802,18 +856,18 @@
           <div class="card-icon-box">🎓</div>
           <h3>College &amp; Early Career Mentorship</h3>
           <p>
-            Passionate about guiding students and early-career software engineers through technical growth, career transitions, college advising, and industry readiness.
+            Dedicated to mentoring computer science students, navigating college transitions, internship prep, and early-career software engineering growth.
           </p>
-          <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none; font-size: 0.92rem;">
+          <a href="https://sites.google.com/view/rahulm14/rahul-mittal-about" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none; font-size: 0.92rem;">
             Reach out for mentorship →
           </a>
         </div>
 
         <div class="info-card">
           <div class="card-icon-box">🎤</div>
-          <h3>Tech Talks &amp; Engagements</h3>
+          <h3>Tech Talks &amp; Keynotes</h3>
           <p>
-            Available for speaking engagements, technical presentations, engineering panel discussions, and guest lectures on software engineering and career paths.
+            Available for tech talks, software engineering career panels, university lectures, and industry speaking engagements.
           </p>
           <a href="https://linkedin.com/in/rahul14mittal" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600; text-decoration: none; font-size: 0.92rem;">
             Contact for speaking requests →
