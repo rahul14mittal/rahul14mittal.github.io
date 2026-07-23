@@ -170,7 +170,7 @@ function initPetalCanvas() {
     height = canvas.height = window.innerHeight;
   });
   
-  const petalsCount = 28;
+  const petalsCount = 35;
   const petals = [];
   const colors = ['#9e1b22', '#d4af37', '#e28d93', '#b83b43', '#f7efc8'];
   
@@ -183,7 +183,8 @@ function initPetalCanvas() {
       speedX: Math.sin(Math.random() * Math.PI) * 0.8,
       rotation: Math.random() * Math.PI * 2,
       rotationSpeed: (Math.random() - 0.5) * 0.04,
-      color: colors[Math.floor(Math.random() * colors.length)]
+      color: colors[Math.floor(Math.random() * colors.length)],
+      type: Math.random() > 0.8 ? 'butterfly' : 'petal'
     });
   }
   
@@ -191,12 +192,19 @@ function initPetalCanvas() {
     ctx.save();
     ctx.translate(p.x, p.y);
     ctx.rotate(p.rotation);
-    ctx.fillStyle = p.color;
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.bezierCurveTo(p.size / 2, -p.size, p.size, -p.size / 3, 0, p.size);
-    ctx.bezierCurveTo(-p.size, -p.size / 3, -p.size / 2, -p.size, 0, 0);
-    ctx.fill();
+    
+    if (p.type === 'butterfly') {
+      ctx.font = `${p.size * 1.8}px Arial`;
+      ctx.fillText('🦋', -p.size/2, p.size/2);
+    } else {
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.bezierCurveTo(p.size / 2, -p.size, p.size, -p.size / 3, 0, p.size);
+      ctx.bezierCurveTo(-p.size, -p.size / 3, -p.size / 2, -p.size, 0, 0);
+      ctx.fill();
+    }
+    
     ctx.restore();
   }
   
