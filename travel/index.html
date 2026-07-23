@@ -207,7 +207,41 @@
       transition: all 0.25s ease;
     }
 
-    .btn-back:hover { background: rgba(255, 255, 255, 0.12); }
+    .map-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2.2rem 1.5rem;
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .map-wrapper {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: center;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      max-width: 900px;
+      height: 525px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .map-wrapper iframe {
+        height: 360px;
+      }
+    }
 
     footer {
       width: 100%;
@@ -244,6 +278,18 @@
       <p class="lead-text">
         Capturing journeys, culture, and architecture across the United States, India, and beyond.
       </p>
+    </div>
+
+    <div class="map-container">
+      <div style="text-align: center; width: 100%;">
+        <span class="hero-tag" style="margin-bottom: 0.5rem;">🗺️ Interactive Map</span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: #fff;">Explored Destinations &amp; States</h2>
+      </div>
+
+      <div class="map-wrapper">
+        <iframe src="https://createaclickablemap.com/map.php?&id=110909&maplocation=false&online=true" width="900" height="525" style="border: none;"></iframe>
+        <script>if (window.addEventListener){ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } else if (window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } </script>
+      </div>
     </div>
 
     <div class="grid-3">
