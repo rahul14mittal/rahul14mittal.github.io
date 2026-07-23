@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 Page Not Found | Rahul Mittal</title>
+  <meta name="description" content="The requested page could not be found." />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="404 Page Not Found | Rahul Mittal" />
+  <meta property="og:description" content="The requested page could not be found." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #080b11;
+      --bg-card: rgba(15, 21, 37, 0.75);
+      --bg-card-hover: rgba(22, 31, 54, 0.88);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-cyan: rgba(56, 189, 248, 0.35);
+      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    .bg-glow-1 {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+      filter: blur(100px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 11, 17, 0.82);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      padding: 5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .error-code {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 15vw, 8rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .links-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .links-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: #ffffff;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-link {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 0.9rem 1.1rem;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .grid-link:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--border-cyan);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #1d4ed8 100%);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.95rem 1.8rem;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+    }
+
+    footer {
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 3rem 1.2rem; gap: 2rem; }
+      .links-card { padding: 1.8rem 1.2rem; }
+      .nav-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow-1"></div>
+
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand-name">Rahul Mittal</a>
+    </div>
+  </header>
+
+  <main>
+    <span class="hero-tag">⚠️ 404 Error</span>
+    <div class="error-code">404</div>
+    <h1>Lost in Cyberspace?</h1>
+    <p class="lead-text">
+      The page or subfolder you are looking for doesn't exist or may have been moved.
+    </p>
+
+    <div class="links-card">
+      <h3>Explore Popular Pages:</h3>
+      <div class="nav-grid">
+        <a href="/" class="grid-link">🏠 Home</a>
+        <a href="/blog/" class="grid-link">📝 Blog</a>
+        <a href="/thedesinri/" class="grid-link">🎵 The Desi NRI</a>
+        <a href="/travel/" class="grid-link">✈️ Travel</a>
+        <a href="/rajendra-mittal/" class="grid-link">🕯️ Memorial</a>
+        <a href="/wedding/" class="grid-link">💒 Wedding</a>
+      </div>
+    </div>
+
+    <div>
+      <a href="/" class="btn-primary">← Return to Main Portfolio</a>
+    </div>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 Rahul Mittal</div>
+  </footer>
+
+</body>
+</html>
