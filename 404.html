@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 Page Not Found | Rahul Mittal</title>
-  <meta name="description" content="The requested page could not be found." />
+  <meta name="description" content="The requested page could not be found. Auto redirecting to home." />
   
   <!-- Open Graph / Meta -->
   <meta property="og:title" content="404 Page Not Found | Rahul Mittal" />
@@ -90,17 +90,37 @@
       text-decoration: none;
     }
 
+    .music-btn {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .music-btn:hover {
+      background: rgba(56, 189, 248, 0.22);
+      transform: scale(1.03);
+    }
+
     main {
       position: relative;
       z-index: 1;
       width: 100%;
       max-width: 900px;
-      padding: 5rem 1.5rem;
+      padding: 4rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 2.5rem;
+      gap: 2.2rem;
     }
 
     .hero-tag {
@@ -118,9 +138,36 @@
       border: 1px solid rgba(56, 189, 248, 0.25);
     }
 
+    /* Redirect Banner */
+    .redirect-banner {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 0.75rem 1.4rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .cancel-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .cancel-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
     .error-code {
       font-family: var(--font-heading);
-      font-size: clamp(5rem, 15vw, 8rem);
+      font-size: clamp(4.5rem, 14vw, 7.5rem);
       font-weight: 800;
       line-height: 1;
       background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
@@ -130,7 +177,7 @@
 
     h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2rem, 5vw, 2.8rem);
       font-weight: 700;
       color: #ffffff;
     }
@@ -223,9 +270,10 @@
     }
 
     @media (max-width: 600px) {
-      main { padding: 3rem 1.2rem; gap: 2rem; }
+      main { padding: 3rem 1.2rem; gap: 1.8rem; }
       .links-card { padding: 1.8rem 1.2rem; }
       .nav-grid { grid-template-columns: 1fr; }
+      .redirect-banner { flex-direction: column; gap: 0.5rem; }
     }
   </style>
 </head>
@@ -233,22 +281,36 @@
 
   <div class="bg-glow-1"></div>
 
+  <!-- Background Music Audio Tag -->
+  <audio id="bgMusic" src="/assets/music.mp3" loop preload="auto"></audio>
+
   <header>
     <div class="nav-container">
       <a href="/" class="brand-name">Rahul Mittal</a>
+      <button class="music-btn" id="musicToggle" aria-label="Toggle background music">
+        <span id="musicIcon">🎵</span>
+        <span id="musicText">Music On</span>
+      </button>
     </div>
   </header>
 
   <main>
     <span class="hero-tag">⚠️ 404 Error</span>
+
+    <!-- 7-Second Auto-Redirect Banner -->
+    <div class="redirect-banner" id="redirectBanner">
+      <span>Auto-redirecting home in <strong id="timer">7</strong> seconds...</span>
+      <button class="cancel-btn" id="cancelRedirect">Pause Redirect</button>
+    </div>
+
     <div class="error-code">404</div>
-    <h1>Lost in Cyberspace?</h1>
+    <h1>Page Not Found</h1>
     <p class="lead-text">
-      The page or subfolder you are looking for doesn't exist or may have been moved.
+      The subpage you accessed doesn't exist or has moved. Redirecting you to the home page automatically.
     </p>
 
     <div class="links-card">
-      <h3>Explore Popular Pages:</h3>
+      <h3>Or Explore Popular Sections:</h3>
       <div class="nav-grid">
         <a href="/" class="grid-link">🏠 Home</a>
         <a href="/blog/" class="grid-link">📝 Blog</a>
@@ -260,13 +322,99 @@
     </div>
 
     <div>
-      <a href="/" class="btn-primary">← Return to Main Portfolio</a>
+      <a href="/" class="btn-primary">← Go to Home Now</a>
     </div>
   </main>
 
   <footer>
     <div>&copy; 2026 Rahul Mittal</div>
   </footer>
+
+  <script>
+    // --- 1. Audio Playback Management ---
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicText = document.getElementById('musicText');
+
+    let isPlaying = false;
+
+    function playAudio() {
+      if (!bgMusic) return;
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        musicIcon.textContent = '🎶';
+        musicText.textContent = 'Music On';
+      }).catch(err => {
+        console.log('Autoplay deferred until tap:', err);
+        isPlaying = false;
+        musicIcon.textContent = '🎵';
+        musicText.textContent = 'Tap for Music';
+      });
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        musicIcon.textContent = '🔇';
+        musicText.textContent = 'Music Off';
+      } else {
+        playAudio();
+      }
+    }
+
+    // Try playing immediately
+    playAudio();
+
+    // Auto-start music on first user tap / click if autoplay was restricted
+    function enableAudioOnUserInteraction() {
+      if (!isPlaying) {
+        playAudio();
+      }
+      document.removeEventListener('click', enableAudioOnUserInteraction);
+      document.removeEventListener('touchstart', enableAudioOnUserInteraction);
+    }
+
+    document.addEventListener('click', enableAudioOnUserInteraction, { once: true });
+    document.addEventListener('touchstart', enableAudioOnUserInteraction, { once: true });
+
+    if (musicToggle) {
+      musicToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAudio();
+      });
+    }
+
+    // --- 2. 7-Second Auto Redirect Countdown ---
+    let timeLeft = 7;
+    const timerElem = document.getElementById('timer');
+    const cancelBtn = document.getElementById('cancelRedirect');
+    const redirectBanner = document.getElementById('redirectBanner');
+
+    const countdownInterval = setInterval(() => {
+      timeLeft--;
+      if (timerElem) {
+        timerElem.textContent = timeLeft;
+      }
+
+      if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+        window.location.href = '/';
+      }
+    }, 1000);
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        clearInterval(countdownInterval);
+        if (redirectBanner) {
+          redirectBanner.style.background = 'rgba(255, 255, 255, 0.05)';
+          redirectBanner.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+          redirectBanner.innerHTML = '<span style="color: var(--text-muted);">Auto-redirect paused. Feel free to browse links below.</span>';
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
