@@ -28,6 +28,7 @@ function initEntryGate() {
   }
   
   gate.addEventListener('click', openGate);
+  gate.addEventListener('touchstart', openGate, { passive: true });
 
   // Auto-tap / transition after 7 seconds if user doesn't click
   setTimeout(() => {
@@ -42,17 +43,30 @@ let bgAudioElement = null;
 
 function initAudioPlayer() {
   const btn = document.getElementById('audio-btn');
-  if (!btn) return;
 
   // Create standard audio element for assets/music.mp3
   bgAudioElement = new Audio('assets/music.mp3');
   bgAudioElement.loop = true;
   bgAudioElement.volume = 0.5;
 
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleAudio(!isPlaying);
-  });
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleAudio(!isPlaying);
+    });
+  }
+
+  // Global touch & tap fallback to guarantee music starts on first user interaction if 7s timer autoplay was restricted
+  function unlockAudioOnFirstTap() {
+    if (!isPlaying) {
+      toggleAudio(true);
+    }
+    document.removeEventListener('click', unlockAudioOnFirstTap);
+    document.removeEventListener('touchstart', unlockAudioOnFirstTap);
+  }
+
+  document.addEventListener('click', unlockAudioOnFirstTap);
+  document.addEventListener('touchstart', unlockAudioOnFirstTap);
 }
 
 function toggleAudio(play) {
