@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Desi NRI | Music & Composition by Rahul Mittal</title>
+  <meta name="description" content="The Desi NRI — Composer, lyricist, singer, and musician Rahul Mittal blending South Asian melodies with modern rhythms." />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="The Desi NRI | Rahul Mittal" />
+  <meta property="og:description" content="Composer, lyricist, singer, and musician." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rahulmittal.xyz/thedesinri/" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #080b11;
+      --bg-card: rgba(15, 21, 37, 0.7);
+      --bg-card-hover: rgba(22, 31, 54, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-purple: rgba(168, 85, 247, 0.35);
+      --accent-purple: #c084fc;
+      --accent-pink: #f472b6;
+      --accent-cyan: #38bdf8;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    .bg-glow-1 {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, rgba(244, 114, 182, 0.05) 40%, transparent 70%);
+      filter: blur(100px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 11, 17, 0.82);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: #ffffff; }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      padding: 4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-purple);
+      background: rgba(192, 132, 252, 0.12);
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid rgba(192, 132, 252, 0.25);
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .highlight-purple {
+      background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      line-height: 1.7;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.2rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card:hover {
+      border-color: var(--border-purple);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.8rem 1.4rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      width: fit-content;
+      transition: all 0.25s ease;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    footer {
+      width: 100%;
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow-1"></div>
+
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand-name">Rahul Mittal</a>
+      <ul class="nav-links">
+        <li><a href="/">← Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/thedesinri/">The Desi NRI</a></li>
+        <li><a href="/travel/">Travel</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <span class="hero-tag">🎵 Artist &amp; Music</span>
+      <h1>The <span class="highlight-purple">Desi NRI</span></h1>
+      <p class="lead-text">
+        I am a <strong>composer, lyricist, singer, and musician</strong>. My artist name <em>"The Desi NRI"</em> translates to a South Asian from India living overseas — blending classical melodies, contemporary rhythms, and cross-cultural storytelling.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div style="font-size: 2rem;">🎤</div>
+        <h3>Vocalist &amp; Songwriter</h3>
+        <p>
+          Crafting original compositions that bridge traditional South Asian musical roots with modern fusion elements.
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="font-size: 2rem;">🎻</div>
+        <h3>American Voices Performance</h3>
+        <p>
+          Performed at <strong>American Voices (2019)</strong> at Florida International University (FIU) in Miami, celebrating cultural diversity through music.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <a href="/" class="btn-back">← Back to Main Portfolio</a>
+    </div>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 Rahul Mittal • The Desi NRI</div>
+  </footer>
+
+</body>
+</html>
