@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background-image: url('Background.jpg');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-            text-shadow: 0px 0px 10px rgba(0,0,0,0.7);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Girlfriend Day</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
 
-        .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
-            max-width: 600px;
-            width: 90%;
-            margin: 20px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #ffe8f2, #fff5fa);
+      color: #7a2a4f;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
 
-        .photo {
-            width: 100%;
-            height: auto;
-            max-width: 500px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px solid #ff8fb7;
+      border-radius: 20px;
+      padding: 36px 28px;
+      max-width: 560px;
+      box-shadow: 0 12px 30px rgba(255, 143, 183, 0.25);
+    }
 
-        .photo:hover {
-            transform: scale(1.05);
-        }
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
 
-        .next-button {
-            display: inline-block;
-            padding: 12px 25px;
-            font-size: 18px;
-            color: #fff;
-            background: linear-gradient(45deg, #ff0066, #ff66cc);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0px 5px 15px rgba(255, 0, 102, 0.4);
-        }
+    button {
+      border: none;
+      background: #ff4f93;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .next-button:hover {
-            background: linear-gradient(45deg, #ff66cc, #ff0066);
-            transform: scale(1.05);
-            box-shadow: 0px 10px 20px rgba(255, 0, 102, 0.6);
-        }
-    </style>
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(255, 79, 147, 0.35);
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: clamp(1.2rem, 3.8vw, 1.8rem);
+      font-weight: 700;
+      color: #d81b60;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      min-height: 1.5em;
+    }
+
+    #message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="Example.jpg" alt="Foto" class="photo">
-        <a href="next.html" class="next-button">Next</a>
-    </div>
-    <script src="script.js"></script>
+  <main class="card">
+    <h1>Here's a gift for you 🎁</h1>
+    <button id="giftButton" type="button">Open Gift</button>
+    <p id="message" aria-live="polite"></p>
+  </main>
+
+  <script>
+    const giftButton = document.getElementById('giftButton');
+    const message = document.getElementById('message');
+
+    giftButton.addEventListener('click', () => {
+      message.textContent = "Happy Girlfriend Day to my favorite person, Shinjini! 💖";
+      message.classList.add('show');
+      giftButton.disabled = true;
+      giftButton.textContent = 'Gift Opened';
+    });
+  </script>
 </body>
 </html>
