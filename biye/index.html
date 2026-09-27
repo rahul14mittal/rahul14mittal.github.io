@@ -11,10 +11,10 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biye | Rahul & Shinjini #RahulKiJini</title>
-  <meta name="description" content="A special video for Rahul & Shinjini's wedding celebration. #RahulKiJini" />
-  <meta property="og:title" content="Biye | Rahul & Shinjini" />
-  <meta property="og:description" content="A special video for Rahul & Shinjini's wedding. #RahulKiJini" />
+  <title>Biye | Shinjini & Rahul #RahulKiJini</title>
+  <meta name="description" content="A special video for Shinjini & Rahul's wedding celebration. #RahulKiJini" />
+  <meta property="og:title" content="Biye | Shinjini & Rahul" />
+  <meta property="og:description" content="A special video for Shinjini & Rahul's wedding. #RahulKiJini" />
   <meta property="og:url" content="https://rahulkijini.com/biye/" />
   <link rel="icon" type="image/png" href="/wedding/assets/rs_monogram.png" />
   <style>
@@ -30,10 +30,8 @@
       align-items: center;
       justify-content: center;
       font-family: 'Outfit', sans-serif;
-      overflow: hidden;
     }
 
-    /* Animated background petals */
     .bg-glow {
       position: fixed;
       inset: 0;
@@ -42,97 +40,106 @@
       pointer-events: none;
     }
 
-    .card {
+    .header {
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 3rem 2.5rem;
-      max-width: 480px;
-      width: 90%;
+      padding: 2.5rem 1rem 1.5rem;
     }
 
     .logo {
-      width: 90px;
-      height: 90px;
+      width: 72px;
+      height: 72px;
       object-fit: cover;
       border-radius: 50%;
       border: 2px solid rgba(212,175,55,0.5);
-      box-shadow: 0 0 30px rgba(212,175,55,0.25);
-      margin-bottom: 1.5rem;
+      box-shadow: 0 0 25px rgba(212,175,55,0.2);
+      margin-bottom: 1rem;
     }
 
     .title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 6vw, 3rem);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
       color: #d4af37;
-      margin-bottom: 0.3rem;
       letter-spacing: 0.03em;
+      margin-bottom: 0.3rem;
     }
 
     .subtitle {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: rgba(255,255,255,0.4);
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      margin-bottom: 2.5rem;
     }
 
     .divider {
       width: 50px;
       height: 1px;
       background: linear-gradient(90deg, transparent, #d4af37, transparent);
-      margin: 0 auto 2.5rem;
+      margin: 1.2rem auto;
     }
 
-    .play-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: linear-gradient(135deg, #9e1b22, #d4af37);
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 1rem 2.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-bottom: 1.5rem;
+    /* Video player — portrait 9:16 */
+    .video-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;   /* constrained on desktop */
+      padding: 0 1rem;
     }
 
-    .play-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 14px 40px rgba(212,175,55,0.45), 0 0 0 1px rgba(212,175,55,0.3);
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.78%;  /* 9:16 portrait ratio */
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 2px rgba(212,175,55,0.35),
+        0 25px 60px rgba(0,0,0,0.85),
+        0 0 50px rgba(212,175,55,0.08);
     }
 
-    .play-icon {
-      width: 28px;
-      height: 28px;
-      background: rgba(255,255,255,0.25);
-      border-radius: 50%;
+    .video-container video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      object-fit: cover;
+    }
+
+    /* On small phones, use more of the screen width */
+    @media (max-width: 480px) {
+      .video-wrapper {
+        max-width: 100%;
+        padding: 0 0.5rem;
+      }
+      .video-container {
+        border-radius: 14px;
+      }
+    }
+
+    .footer-note {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1.5rem 1rem 2.5rem;
       display: flex;
       align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
       justify-content: center;
-      font-size: 0.9rem;
-      padding-left: 2px;
     }
 
-    .redirect-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.3);
-      margin-top: 0.5rem;
-    }
-
-    .countdown {
-      color: #d4af37;
-      font-weight: 600;
+    .hashtag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(212,175,55,0.6);
     }
 
     .back-link {
-      display: inline-block;
-      margin-top: 2rem;
       font-size: 0.78rem;
       color: rgba(255,255,255,0.25);
       text-decoration: none;
@@ -141,47 +148,50 @@
     }
 
     .back-link:hover { color: rgba(255,255,255,0.5); }
-
-    .hashtag {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: rgba(212,175,55,0.5);
-      margin-top: 1.5rem;
-    }
   </style>
 </head>
 <body>
   <div class="bg-glow"></div>
 
-  <div class="card">
+  <div class="header">
     <img src="/wedding/assets/rs_monogram.png" alt="RS Monogram" class="logo" />
-    <h1 class="title">Rahul &amp; Shinjini</h1>
+    <h1 class="title">Shinjini &amp; Rahul</h1>
     <p class="subtitle">December 11–12, 2026 &nbsp;•&nbsp; Kolkata</p>
     <div class="divider"></div>
+  </div>
 
-    <a href="https://canva.link/6eka3q0yctgzs7e" id="play-btn" class="play-btn" target="_blank" rel="noopener">
-      <span class="play-icon">▶</span>
-      Watch Our Video
-    </a>
+  <div class="video-wrapper">
+    <div class="video-container">
+      <video
+        id="biye-video"
+        controls
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="wedding.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
-    <p class="redirect-note">Opening automatically in <span class="countdown" id="count">5</span>s…</p>
-    <p class="hashtag">#RahulKiJini</p>
-    <a href="/wedding/" class="back-link">← Back to Invitation</a>
+  <div class="footer-note">
+    <span class="hashtag">#RahulKiJini</span>
   </div>
 
   <script>
-    const target = 'https://canva.link/6eka3q0yctgzs7e';
-    let n = 5;
-    const el = document.getElementById('count');
-    const timer = setInterval(() => {
-      n--;
-      el.textContent = n;
-      if (n <= 0) {
-        clearInterval(timer);
-        window.location.href = target;
-      }
-    }, 1000);
+    // Autoplay starts muted (browser requirement).
+    // Unmute on first user interaction so sound plays naturally.
+    const vid = document.getElementById('biye-video');
+    const unmute = () => {
+      vid.muted = false;
+      document.removeEventListener('click', unmute);
+      document.removeEventListener('touchstart', unmute);
+    };
+    document.addEventListener('click', unmute);
+    document.addEventListener('touchstart', unmute);
   </script>
+
 </body>
 </html>
