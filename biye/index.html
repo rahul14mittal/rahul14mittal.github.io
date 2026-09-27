@@ -18,6 +18,8 @@
   <meta property="og:url" content="https://rahulkijini.com/biye/" />
   <link rel="icon" type="image/png" href="/wedding/assets/rs_monogram.png" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;600&display=swap');
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -27,103 +29,159 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Georgia', serif;
+      font-family: 'Outfit', sans-serif;
+      overflow: hidden;
     }
 
-    .header {
+    /* Animated background petals */
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 40%, rgba(152,27,34,0.2) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 70%, rgba(212,175,55,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 2rem 1rem 1.5rem;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 90%;
     }
 
-    .header-title {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+    .logo {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.5);
+      box-shadow: 0 0 30px rgba(212,175,55,0.25);
+      margin-bottom: 1.5rem;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3rem);
       color: #d4af37;
-      letter-spacing: 0.05em;
       margin-bottom: 0.3rem;
+      letter-spacing: 0.03em;
     }
 
-    .header-sub {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 0.2em;
+    .subtitle {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.25em;
       text-transform: uppercase;
+      margin-bottom: 2.5rem;
     }
 
     .divider {
-      width: 60px;
-      height: 2px;
+      width: 50px;
+      height: 1px;
       background: linear-gradient(90deg, transparent, #d4af37, transparent);
-      margin: 1rem auto;
+      margin: 0 auto 2.5rem;
     }
 
-    .iframe-wrapper {
-      width: 100%;
-      max-width: 960px;
-      padding: 0 1rem 2rem;
-      flex: 1;
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, #9e1b22, #d4af37);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(212,175,55,0.3), 0 0 0 1px rgba(212,175,55,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .play-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 40px rgba(212,175,55,0.45), 0 0 0 1px rgba(212,175,55,0.3);
+    }
+
+    .play-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.9rem;
+      padding-left: 2px;
     }
 
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 2px rgba(212, 175, 55, 0.4),
-        0 20px 60px rgba(0, 0, 0, 0.8),
-        0 0 40px rgba(212, 175, 55, 0.1);
-    }
-
-    .iframe-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .footer-note {
-      text-align: center;
-      padding: 1rem 1rem 2rem;
+    .redirect-note {
+      font-size: 0.78rem;
       color: rgba(255,255,255,0.3);
-      font-size: 0.82rem;
-      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
     }
+
+    .countdown {
+      color: #d4af37;
+      font-weight: 600;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: rgba(255,255,255,0.5); }
 
     .hashtag {
-      color: #d4af37;
-      font-weight: bold;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(212,175,55,0.5);
+      margin-top: 1.5rem;
     }
   </style>
 </head>
 <body>
+  <div class="bg-glow"></div>
 
-  <div class="header">
-    <h1 class="header-title">Rahul &amp; Shinjini</h1>
-    <p class="header-sub">December 11–12, 2026 • Kolkata</p>
+  <div class="card">
+    <img src="/wedding/assets/rs_monogram.png" alt="RS Monogram" class="logo" />
+    <h1 class="title">Rahul &amp; Shinjini</h1>
+    <p class="subtitle">December 11–12, 2026 &nbsp;•&nbsp; Kolkata</p>
     <div class="divider"></div>
+
+    <a href="https://canva.link/6eka3q0yctgzs7e" id="play-btn" class="play-btn" target="_blank" rel="noopener">
+      <span class="play-icon">▶</span>
+      Watch Our Video
+    </a>
+
+    <p class="redirect-note">Opening automatically in <span class="countdown" id="count">5</span>s…</p>
+    <p class="hashtag">#RahulKiJini</p>
+    <a href="/wedding/" class="back-link">← Back to Invitation</a>
   </div>
 
-  <div class="iframe-wrapper">
-    <div class="iframe-container">
-      <iframe
-        src="https://canva.link/6eka3q0yctgzs7e"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-        loading="lazy"
-        title="Rahul & Shinjini Wedding Video"
-      ></iframe>
-    </div>
-  </div>
-
-  <p class="footer-note">
-    <span class="hashtag">#RahulKiJini</span> &nbsp;•&nbsp;
-    <a href="/wedding/" style="color: rgba(255,255,255,0.4); text-decoration: none;">← Back to Invitation</a>
-  </p>
-
+  <script>
+    const target = 'https://canva.link/6eka3q0yctgzs7e';
+    let n = 5;
+    const el = document.getElementById('count');
+    const timer = setInterval(() => {
+      n--;
+      el.textContent = n;
+      if (n <= 0) {
+        clearInterval(timer);
+        window.location.href = target;
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
