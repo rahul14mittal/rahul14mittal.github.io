@@ -10,187 +10,127 @@
     gtag('config', 'G-P59LHG3TJX');
   </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biye | Shinjini & Rahul #RahulKiJini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Amader Meyer Biye | Shinjini & Rahul #RahulKiJini</title>
   <meta name="description" content="A special video for Shinjini & Rahul's wedding celebration. #RahulKiJini" />
-  <meta property="og:title" content="Biye | Shinjini & Rahul" />
+  <meta property="og:title" content="Amader Meyer Biye | Shinjini & Rahul" />
   <meta property="og:description" content="A special video for Shinjini & Rahul's wedding. #RahulKiJini" />
   <meta property="og:url" content="https://rahulkijini.com/biye/" />
   <link rel="icon" type="image/png" href="/wedding/assets/rs_monogram.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;600&display=swap');
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background: #0d0507;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Outfit', sans-serif;
-    }
-
-    .bg-glow {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 30% 40%, rgba(152,27,34,0.2) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 70%, rgba(212,175,55,0.1) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .header {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2.5rem 1rem 1.5rem;
-    }
-
-    .logo {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid rgba(212,175,55,0.5);
-      box-shadow: 0 0 25px rgba(212,175,55,0.2);
-      margin-bottom: 1rem;
-    }
-
-    .title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      color: #d4af37;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.3rem;
-    }
-
-    .subtitle {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #d4af37, transparent);
-      margin: 1.2rem auto;
-    }
-
-    /* Video player — portrait 9:16 */
-    .video-wrapper {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 420px;   /* constrained on desktop */
-      padding: 0 1rem;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 177.78%;  /* 9:16 portrait ratio */
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 2px rgba(212,175,55,0.35),
-        0 25px 60px rgba(0,0,0,0.85),
-        0 0 50px rgba(212,175,55,0.08);
-    }
-
-    .video-container video {
-      position: absolute;
-      top: 0; left: 0;
+    html, body {
       width: 100%;
       height: 100%;
       background: #000;
-      object-fit: cover;
+      overflow: hidden;
     }
 
-    /* On small phones, use more of the screen width */
-    @media (max-width: 480px) {
-      .video-wrapper {
-        max-width: 100%;
-        padding: 0 0.5rem;
-      }
-      .video-container {
-        border-radius: 14px;
-      }
-    }
-
-    .footer-note {
-      position: relative;
+    /* Video fills the full viewport */
+    #biye-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
       z-index: 1;
-      text-align: center;
-      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    /* Tap-to-unmute overlay — shown briefly at start */
+    #unmute-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
       display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
+      align-items: flex-end;
       justify-content: center;
+      padding-bottom: env(safe-area-inset-bottom, 2rem);
+      padding-bottom: max(env(safe-area-inset-bottom), 2rem);
+      pointer-events: none;
     }
 
-    .hashtag {
-      font-family: 'Cormorant Garamond', serif;
+    #unmute-badge {
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: rgba(255,255,255,0.9);
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 2rem;
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+
+    #unmute-badge.hidden {
+      opacity: 0;
+    }
+
+    /* Hashtag watermark */
+    #watermark {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 5;
+      font-family: 'Georgia', serif;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 0.8rem;
       color: rgba(212,175,55,0.6);
+      pointer-events: none;
     }
-
-    .back-link {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.25);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
-    }
-
-    .back-link:hover { color: rgba(255,255,255,0.5); }
   </style>
 </head>
 <body>
-  <div class="bg-glow"></div>
 
-  <div class="header">
-    <img src="/wedding/assets/rs_monogram.png" alt="RS Monogram" class="logo" />
-    <h1 class="title">Shinjini &amp; Rahul</h1>
-    <p class="subtitle">December 11–12, 2026 &nbsp;•&nbsp; Kolkata</p>
-    <div class="divider"></div>
+  <video
+    id="biye-video"
+    autoplay
+    muted
+    playsinline
+    preload="auto"
+    controls
+  >
+    <source src="wedding.mp4" type="video/mp4">
+  </video>
+
+  <div id="unmute-overlay">
+    <div id="unmute-badge">🔇 Tap anywhere for sound</div>
   </div>
 
-  <div class="video-wrapper">
-    <div class="video-container">
-      <video
-        id="biye-video"
-        controls
-        autoplay
-        muted
-        playsinline
-        preload="auto"
-      >
-        <source src="wedding.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-
-  <div class="footer-note">
-    <span class="hashtag">#RahulKiJini</span>
-  </div>
+  <div id="watermark">#RahulKiJini</div>
 
   <script>
-    // Autoplay starts muted (browser requirement).
-    // Unmute on first user interaction so sound plays naturally.
     const vid = document.getElementById('biye-video');
-    const unmute = () => {
+    const badge = document.getElementById('unmute-badge');
+
+    // Unmute + request fullscreen on first tap
+    const unlock = () => {
+      // Unmute
       vid.muted = false;
-      document.removeEventListener('click', unmute);
-      document.removeEventListener('touchstart', unmute);
+
+      // Request fullscreen
+      const el = vid;
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      else if (el.webkitEnterFullscreen) el.webkitEnterFullscreen(); // iOS Safari
+
+      // Hide badge
+      badge.classList.add('hidden');
+
+      document.removeEventListener('click', unlock);
+      document.removeEventListener('touchstart', unlock);
     };
-    document.addEventListener('click', unmute);
-    document.addEventListener('touchstart', unmute);
+
+    document.addEventListener('click', unlock);
+    document.addEventListener('touchstart', unlock);
+
+    // Auto-hide badge after 5s even without tap
+    setTimeout(() => badge.classList.add('hidden'), 5000);
   </script>
 
 </body>
