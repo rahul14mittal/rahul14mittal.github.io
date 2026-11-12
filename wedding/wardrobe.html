@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P59LHG3TJX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P59LHG3TJX');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wardrobe Planner | Rahul & Shinjini #RahulKiJini</title>
+  <meta name="description" content="Wardrobe Planner for Rahul & Shinjini's wedding celebrations Dec 11-12, 2026. #RahulKiJini" />
+  <meta property="og:title" content="Wardrobe Planner | Rahul weds Shinjini" />
+  <meta property="og:description" content="What to wear at each ceremony — Rahul & Shinjini's wedding Dec 11-12, 2026. #RahulKiJini" />
+  <meta property="og:image" content="assets/wardrobe_planner.jpg" />
+  <link rel="icon" type="image/png" href="assets/rs_monogram.png" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --cream: #fdf6ec;
+      --warm-bg: #fff8f0;
+      --gold-dark: #b8860b;
+      --gold-light: #d4a017;
+      --gold-accent: #f0c040;
+      --maroon: #8b1a1a;
+      --text-dark: #2c1a0e;
+      --text-mid: #6b4c2a;
+      --font-title: 'Playfair Display', serif;
+      --font-script: 'Cormorant Garamond', serif;
+      --font-body: 'Lato', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--warm-bg);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 50%, #2c1a0e 100%);
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .header-monogram {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-dark);
+      object-fit: cover;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .header-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .header-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      line-height: 1.1;
+    }
+    .header-script {
+      font-family: var(--font-script);
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold-accent);
+      margin-top: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+    .header-hashtag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: rgba(240,192,64,0.7);
+      position: relative;
+      z-index: 1;
+    }
+    .divider-gold {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+      margin: 1rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── INTRO TEXT ── */
+    .intro-band {
+      text-align: center;
+      padding: 1.6rem 1.5rem 0.5rem;
+      font-family: var(--font-script);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-mid);
+    }
+
+    /* ── EVENT CARDS ── */
+    .events-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(44,26,14,0.10);
+      border: 1px solid rgba(184,134,11,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(44,26,14,0.16);
+    }
+
+    .event-card-header {
+      padding: 1.4rem 1.4rem 1rem;
+      background: linear-gradient(135deg, #2c1a0e, #5a2d0c);
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+    .event-emoji {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .event-name {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+      letter-spacing: 0.04em;
+    }
+    .event-datetime {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240,192,64,0.75);
+      margin-top: 0.3rem;
+    }
+
+    .event-card-body {
+      padding: 1.4rem;
+    }
+    .attire-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-dark);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .attire-theme {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 0.2rem;
+    }
+    .attire-sub {
+      font-family: var(--font-script);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 0.8rem;
+    }
+    .attire-desc {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .meal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.9rem;
+      background: rgba(184,134,11,0.1);
+      border: 1px solid rgba(184,134,11,0.25);
+      color: var(--gold-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FULL PLANNER IMAGE ── */
+    .planner-image-section {
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .planner-image-section h2 {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .planner-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(44,26,14,0.18);
+      border: 2px solid rgba(184,134,11,0.3);
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(184,134,11,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(184,134,11,0.45);
+    }
+
+    /* ── BACK LINK ── */
+    .back-bar {
+      text-align: center;
+      padding: 1.2rem;
+      background: rgba(44,26,14,0.03);
+      border-top: 1px solid rgba(184,134,11,0.12);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gold-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--maroon); }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #2c1a0e;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-family: var(--font-body);
+    }
+    .page-footer .hashtag {
+      font-family: var(--font-script);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--gold-accent);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <img src="assets/rs_monogram.png" alt="RS Monogram" class="header-monogram" />
+    <div class="header-tag">Rahul weds Shinjini</div>
+    <h1 class="header-title">Wardrobe Planner</h1>
+    <div class="header-script">Dress to Celebrate 💛</div>
+    <div class="header-hashtag">#RahulKiJini</div>
+    <div class="divider-gold"></div>
+  </header>
+
+  <p class="intro-band">Here's what to wear to each of our celebrations — come dressed to the theme and let's make it magical!</p>
+
+  <!-- CARDS GRID -->
+  <div class="events-container">
+
+    <!-- Chaak Bhaat / Mayra -->
+    <div class="event-card">
+      <div class="event-card-header">
+        <span class="event-emoji">🦚🪷</span>
+        <div class="event-name">Chaak Bhaat (Mayra)</div>
+        <div class="event-datetime">11th Dec, 2026 · 2:00 PM</div>
+      </div>
+      <div class="event-card-body">
+        <div class="attire-label">Dress Code</div>
+        <div class="attire-theme">Roots &amp; Rituals</div>
+        <div class="attire-sub">Traditional Festive Attire</div>
+        <p class="attire-desc">Embrace heritage hues — think rich reds, greens, and marigold yellows. Sarees, lehengas, sherwanis, and dhotis are all welcome!</p>
+        <span class="meal-pill">🍽️ Lunch</span>
+      </div>
+    </div>
+
+    <!-- Sangeet Night -->
+    <div class="event-card">
+      <div class="event-card-header">
+        <span class="event-emoji">💃✨</span>
+        <div class="event-name">Sangeet Night</div>
+        <div class="event-datetime">11th Dec, 2026 · 7:00 PM</div>
+      </div>
+      <div class="event-card-body">
+        <div class="attire-label">Dress Code</div>
+        <div class="attire-theme">Glitter and Glam</div>
+        <div class="attire-sub">Sparkle, Shimmer &amp; Shine</div>
+        <p class="attire-desc">It's a night to dazzle! Sequins, metallic fabrics, embellished gowns, and shimmery Indo-western ensembles are perfect.</p>
+        <span class="meal-pill">🍽️ Dinner</span>
+      </div>
+    </div>
+
+    <!-- Haldi Carnival -->
+    <div class="event-card">
+      <div class="event-card-header">
+        <span class="event-emoji">🌿🌻</span>
+        <div class="event-name">Haldi Carnival</div>
+        <div class="event-datetime">12th Dec, 2026 · 10:00 AM</div>
+      </div>
+      <div class="event-card-body">
+        <div class="attire-label">Dress Code</div>
+        <div class="attire-theme">Pastel Bloom</div>
+        <div class="attire-sub">Soft Pastels &amp; Sunshine Hues</div>
+        <p class="attire-desc">Go light and playful — pastels, yellows, whites, and soft greens. Wear something you don't mind getting a little golden!</p>
+        <span class="meal-pill">🍽️ Lunch</span>
+      </div>
+    </div>
+
+    <!-- Baraat & Phere -->
+    <div class="event-card">
+      <div class="event-card-header">
+        <span class="event-emoji">🐎👑</span>
+        <div class="event-name">Baraat &amp; Phere</div>
+        <div class="event-datetime">12th Dec, 2026 · 4:00 PM</div>
+      </div>
+      <div class="event-card-body">
+        <div class="attire-label">Dress Code</div>
+        <div class="attire-theme">The Royal Affair</div>
+        <div class="attire-sub">Regal Indian Traditional Attire</div>
+        <p class="attire-desc">Bring your most majestic look — heavy lehengas, silk sarees, sherwanis, and achkans in deep jewel tones fit for a royal wedding.</p>
+        <span class="meal-pill">🍽️ Dinner</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FULL PLANNER IMAGE -->
+  <div class="planner-image-section">
+    <h2>Save the Full Planner</h2>
+    <img
+      src="assets/wardrobe_planner.jpg"
+      alt="Wardrobe Planner – Rahul weds Shinjini"
+      class="planner-img"
+    />
+    <a href="assets/wardrobe_planner.jpg" download="RahulKiJini_Wardrobe_Planner.jpg" class="download-btn">
+      ⬇️ Download Planner
+    </a>
+  </div>
+
+  <div class="back-bar">
+    <a href="/wedding/" class="back-link">← Back to Invitation</a>
+  </div>
+
+  <footer class="page-footer">
+    <span class="hashtag">#RahulKiJini</span>
+    Crafted with ❤️ for Rahul &amp; Shinjini · December 11–12, 2026 · Kolkata, India
+  </footer>
+
+</body>
+</html>
